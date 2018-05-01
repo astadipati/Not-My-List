@@ -1,19 +1,23 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {View , Text, TouchableOpacity} from 'react-native';
 
-// import file sendiri dot slash
-import Header from './components/Header';
-import Body from './components/Body';
+export default class App extends Component{
 
-// cara panggil lebih simpel
+  // buat fungsi touchable
+  handleClick(){
+    alert('Ke Klik !!!')
+  }
 
-
-export default ()=> (
-    <View style={{flex:1, justifyContent:'center'}}>
-    {/* jika props yang diambil berupa string atau boolean harus jadi object dulu*/}
-      <Header title={1} color="yellow"/>
-      {/* ngambil string title yang dapat di isi value tertentu */}
-      <Body/>
-    </View>
-);
-  
+  render(){
+    return(
+      <View style={{flex:1, justifyContent: 'center', alignItems:'center'}}>
+        <TouchableOpacity
+          onPress={()=> this.handleClick()}
+          style={{backgroundColor: '#D0D0D0', padding:15}}
+        >
+          <Text>Click Me !</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
