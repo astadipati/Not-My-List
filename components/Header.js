@@ -4,9 +4,10 @@ import {View, Text} from 'react-native';
 export default class Header extends Component{
     render(){
         // definisikan dulu jenis 2 props
-        const color = this.props.color;
-        const title = this.props.title;
-
+        // const color = this.props.color;
+        // const title = this.props.title;
+        // cara paling simple pakai es6
+        const{color, title} = this.props; //menjadikan sebagai object
         return(
         <View style={{backgroundColor: color}}>
         {/* karena color sudah berupa object beda dengan title */}
