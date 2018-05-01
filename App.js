@@ -1,23 +1,20 @@
 import React, {Component} from 'react';
-import {View , Text, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native'
 
 export default class App extends Component{
-
-  // buat fungsi touchable
-  handleClick(){
-    alert('Ke Klik !!!')
-  }
-
   render(){
     return(
-      <View style={{flex:1, justifyContent: 'center', alignItems:'center'}}>
-        <TouchableOpacity
-          onPress={()=> this.handleClick()}
-          style={{backgroundColor: '#D0D0D0', padding:15}}
-        >
-          <Text>Click Me !</Text>
-        </TouchableOpacity>
+      <View style={styles.container}>
+        <Text>Ini Style Sheet part 1</Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
