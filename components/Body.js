@@ -5,7 +5,7 @@ export default class Body extends Component{
     render(){
         return(
             <View style={{backgroundColor: '#EC463E'}}>
-                <Text>Ini Body untuk props</Text>
+                {/* <Text>Ini Body untuk props</Text> */}
             </View>
         );
     }
