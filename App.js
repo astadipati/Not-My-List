@@ -1,64 +1,43 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-
-import Header from './components/Header';
-import Body from './components/Body';
+import { Content, Container, Text, Header, Body, List, ListItem, Left, CheckBox } from 'native-base';
 
 export default class App extends Component{
   render(){
     return(
-      // didalam container ada header dan body
-      <View style={styles.container}>
-        <View style={styles.header}>
-        <Text>Header</Text>
-        </View>
-        <View style={styles.body}>
-        <View style={styles.list}>
-          <View style={styles.listItem}>
-            <View style={styles.listItemLeft}>
-              <Text>v1</Text>
-            </View>
-            <View style={styles.listItemRight}>
-              <Text>First Item</Text>
-            </View>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.listItemLeft}>
-              <Text>v2</Text>
-            </View>
-            <View style={styles.listItemRight}>
-              <Text>Second Item</Text>
-            </View>
-          </View>
-        </View>
-        </View>
-        <Body/>
-      </View>
+      // didalam container wajib
+      <Container>
+        <Header>
+          <Body>
+            <Text>Not to do list</Text>
+          </Body>
+        </Header>
+        <Content>
+          <List>
+
+            <ListItem>
+              <Left>
+                {/* <Text>v</Text> kita ganti dengan checkbox asli*/}
+                <CheckBox checked={false}/>
+              </Left>
+              {/* jangan lupa ditaruh lagi dalam body */}
+              <Body>
+                <Text>First Item</Text>
+              </Body>  
+            </ListItem>
+            <ListItem>
+
+              <Left>
+                {/* <Text>v</Text> kita ganti dengan checkbox asli*/}
+                <CheckBox checked={true}/>
+              </Left>
+              {/* jangan lupa ditaruh lagi dalam body */}
+              <Body>
+                <Text>Second Item</Text>
+              </Body>  
+            </ListItem>
+          </List>
+        </Content>
+      </Container>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-  },
-  header: {
-    backgroundColor: '#D0D0D0',
-    flex: 1
-  },
-  body: {
-    backgroundColor: '#EC463E',
-    flex:5
-  },
-  listItem:{
-    flexDirection: 'row',
-    padding: 10,
-    backgroundColor: '#fff'
-  },
-  listItemLeft: {
-    flex:1
-  },
-  listItemRight:{
-    flex:9
-}
-});
