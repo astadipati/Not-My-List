@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { Content, Container, Text, Header, Body, List, ListItem, Left, CheckBox } from 'native-base';
 
 export default class App extends Component{
+
+  todos =['First todo', 'Second todo', 'Third Todo'];
   render(){
     return(
       // didalam container wajib
