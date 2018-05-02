@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Content, Container, Text, Header, Body, List, ListItem, Left, CheckBox } from 'native-base';
-
+import TodoItem from './components/TodoItem';
 export default class App extends Component{
 
   todos =[
@@ -18,22 +18,7 @@ export default class App extends Component{
     },
   ];
 
-  renderRow(todo){
-    return(
-      // jangan lupa key untuk menghilangkan error, karena parameter ini harus terdeteksi unik ketika di loop
-      <ListItem key={todo.id}>
-        <Left>
-          {/* <Text>v</Text> kita ganti dengan checkbox asli*/}
-          <CheckBox checked={false}/>
-        </Left>
-        {/* jangan lupa ditaruh lagi dalam body */}
-        <Body>
-          {/* setelah kita aliaskan todo, baru ambil array objectnya */}
-          <Text>{todo.notodo}</Text>
-        </Body>  
-      </ListItem>
-    )
-  }
+
 
   render(){
     return(
@@ -48,9 +33,7 @@ export default class App extends Component{
         {/* content */}
         <Content>
           <List>
-            {/* loop dimari pakai simple es6 ngambil nilai array todos yang dilempar ke objek baru todo*/}
-            {/* dan selanjutnya dilempar ke view text */}
-            {this.todos.map((todo) =>this.renderRow(todo))}
+            {this.todos.map((todo) =><TodoItem todo={todo} key={todo.id}/> )}
           </List>
         </Content>
       </Container>
