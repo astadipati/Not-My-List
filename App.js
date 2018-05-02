@@ -9,15 +9,21 @@ export default class App extends Component{
     return(
       // didalam container ada header dan body
       <View style={styles.container}>
-        <View style={styles.header
-        }>
+        <View style={styles.header}>
         <Text>Header</Text>
         </View>
-        <View style={styles.body
-        }>
-        <Text>Body</Text>
+        <View style={styles.body}>
+        <View style={styles.list}>
+          <View style={styles.listItem}>
+            <View style={styles.listItemLeft}>
+              <Text>v</Text>
+            </View>
+            <View style={styles.listItemRight}>
+              <Text>First Item</Text>
+            </View>
+          </View>
         </View>
-
+        </View>
         <Body/>
       </View>
     );
@@ -35,5 +41,16 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: '#EC463E',
     flex:5
-  }
+  },
+  listItem:{
+    flexDirection: 'row',
+    padding: 10,
+    backgroundColor: '#fff'
+  },
+  listItemLeft: {
+    flex:1
+  },
+  listItemRight:{
+    flex:9
+}
 });
