@@ -3,7 +3,7 @@ import {  Text, Header, Body, List, ListItem, Left, CheckBox } from 'native-base
 
 export default class TodoItem extends Component{
     render(){
-        const{todo} = this.props;
+        const{todo: {notodo}} = this.props;
         return (
             // kita buat props
             <ListItem >
@@ -13,7 +13,7 @@ export default class TodoItem extends Component{
             {/* jangan lupa ditaruh lagi dalam body */}
             <Body>
                 {/* setelah kita aliaskan todo, baru ambil array objectnya */}
-                <Text>{todo.notodo}</Text>
+                <Text>{notodo}</Text>
             </Body>  
             </ListItem>
 
