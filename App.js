@@ -18,6 +18,23 @@ export default class App extends Component{
     },
   ];
 
+  renderRow(todo){
+    return(
+      // jangan lupa key untuk menghilangkan error, karena parameter ini harus terdeteksi unik ketika di loop
+      <ListItem key={todo.id}>
+        <Left>
+          {/* <Text>v</Text> kita ganti dengan checkbox asli*/}
+          <CheckBox checked={false}/>
+        </Left>
+        {/* jangan lupa ditaruh lagi dalam body */}
+        <Body>
+          {/* setelah kita aliaskan todo, baru ambil array objectnya */}
+          <Text>{todo.notodo}</Text>
+        </Body>  
+      </ListItem>
+    )
+  }
+
   render(){
     return(
       // didalam container wajib
@@ -33,21 +50,7 @@ export default class App extends Component{
           <List>
             {/* loop dimari pakai simple es6 ngambil nilai array todos yang dilempar ke objek baru todo*/}
             {/* dan selanjutnya dilempar ke view text */}
-            {this.todos.map((todo) =>(
-              // jangan lupa key untuk menghilangkan error, karena parameter ini harus terdeteksi unik ketika di loop
-              <ListItem key={todo.id}>
-                <Left>
-                  {/* <Text>v</Text> kita ganti dengan checkbox asli*/}
-                  <CheckBox checked={false}/>
-                </Left>
-                {/* jangan lupa ditaruh lagi dalam body */}
-                <Body>
-                  {/* setelah kita aliaskan todo, baru ambil array objectnya */}
-                  <Text>{todo.notodo}</Text>
-                </Body>  
-              </ListItem>
-            ))}
-
+            {this.todos.map((todo) =>this.renderRow(todo))}
           </List>
         </Content>
       </Container>
