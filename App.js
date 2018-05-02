@@ -16,10 +16,18 @@ export default class App extends Component{
         <View style={styles.list}>
           <View style={styles.listItem}>
             <View style={styles.listItemLeft}>
-              <Text>v</Text>
+              <Text>v1</Text>
             </View>
             <View style={styles.listItemRight}>
               <Text>First Item</Text>
+            </View>
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.listItemLeft}>
+              <Text>v2</Text>
+            </View>
+            <View style={styles.listItemRight}>
+              <Text>Second Item</Text>
             </View>
           </View>
         </View>
