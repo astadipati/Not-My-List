@@ -4,34 +4,27 @@ import {FlatList} from 'react-native';
 import TodoItem from './components/TodoItem';
 export default class App extends Component{
 
-  state ={
-    count:0
+  constructor(){
+    super();
+    this.state ={
+      count:0,
+      todos:[]
+    };
   }
 
-  todos =[
-    {
-      id: "1",
-      notodo: "Makan"
-    },
-    {
-      id: "2",
-      notodo: "Mancing"
-    },
-    {
-      id: "3",
-      notodo: "Ngupi"
-    },
-    {
-      id: "4",
-      notodo: "Nyatai"
-    }
-  ];
 
   _keyExtractor = (item, index) => item.id;
   handleTambah(){
+    let count = this.state.count + 1;
+    let todos = this.state.todos;
+    todos.push({
+      id: count,
+      todo: "First todos #" + count
+    });
+
     this.setState({
-      // count: 3
-      count: this.state.count +1
+      todos: todos,
+      count:count
     });
   }
 
@@ -44,16 +37,11 @@ export default class App extends Component{
             <Text>Not to do list ({this.state.count})</Text>
           </Body>
         </Header>
-        {/* end header */}
+        {/* end  header */}
         {/* content */}
         <Content>
           <List>
-            <FlatList
-              data={this.todos}
-              keyExtractor={this._keyExtractor}
-              renderItem={({item})=> <TodoItem todo={item}/>}
-            />
-            {/* {this.todos.map((todo) =><TodoItem todo={todo} key={todo.id}/> )} */}
+            {this.state.todos.map((todo) =><TodoItem todo={todo} key={todo.id}/> )}
           </List>
         </Content>
         {/* pastikan fab berada di luar kontent */}
@@ -62,7 +50,6 @@ export default class App extends Component{
             position="bottomRight"
             onPress={() => this.handleTambah()}>
             <Icon name="add" />
-           
         </Fab>
       </Container>
     );
